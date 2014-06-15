@@ -253,15 +253,9 @@ AudioHardware::AudioHardware() :
                 CHECK_FOR(HANDSET_SUBMIC);
                 CHECK_FOR(STEREO_SPEAKER_SUBMIC);
                 CHECK_FOR(SPEAKER_SUBMIC);
-                CHECK_FOR(HEADSET_SPKR_STEREO_MUSIC);
-                CHECK_FOR(SPEAKER_PHONE_MONO_MUSIC);
-                CHECK_FOR(SPEAKER_PHONE_STEREO_MUSIC);
                 CHECK_FOR(MTK_HANDSET_RX);
                 CHECK_FOR(MTK_HEADSET_RX);
                 CHECK_FOR(MTK_SPEAKER_RX);
-                CHECK_FOR(MTK_HANDSET_MUSIC_TX);
-                CHECK_FOR(MTK_HEADSET_MUSIC_TX);
-                CHECK_FOR(MTK_SPEAKER_MUSIC_TX);
 
 #undef CHECK_FOR
             }
@@ -1057,10 +1051,8 @@ status_t AudioHardware::setMasterVolume(float v)
     ALOGI("Set master volume to %d.\n", vol);
     set_volume_rpc(CAD_HW_DEVICE_ID_HANDSET_SPKR, CAD_HW_DEVICE_ID_HANDSET_MIC, SND_METHOD_VOICE, vol, m7xsnddriverfd);
     set_volume_rpc(CAD_HW_DEVICE_ID_SPEAKER_PHONE_MONO, CAD_HW_DEVICE_ID_SPEAKER_PHONE_MIC, SND_METHOD_VOICE, vol, m7xsnddriverfd);
-    set_volume_rpc(CAD_HW_DEVICE_ID_SPEAKER_PHONE_MONO_MUSIC, CAD_HW_DEVICE_ID_SPEAKER_PHONE_MIC, SND_METHOD_VOICE, vol, m7xsnddriverfd);
     set_volume_rpc(CAD_HW_DEVICE_ID_BT_SCO_SPKR, CAD_HW_DEVICE_ID_BT_SCO_MIC, SND_METHOD_VOICE, vol, m7xsnddriverfd);
     set_volume_rpc(CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO, CAD_HW_DEVICE_ID_HEADSET_MIC, SND_METHOD_VOICE, vol, m7xsnddriverfd);
-    set_volume_rpc(CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO_MUSIC, CAD_HW_DEVICE_ID_HEADSET_MIC, SND_METHOD_VOICE, vol, m7xsnddriverfd);
     set_volume_rpc(CAD_HW_DEVICE_ID_HANDSET_SPKR, CAD_HW_DEVICE_ID_HANDSET_MIC_ENDFIRE, SND_METHOD_VOICE, vol, m7xsnddriverfd);
     set_volume_rpc(CAD_HW_DEVICE_ID_SPEAKER_PHONE_MONO, CAD_HW_DEVICE_ID_SPEAKER_PHONE_MIC_ENDFIRE, SND_METHOD_VOICE, vol, m7xsnddriverfd);
     set_volume_rpc(CAD_HW_DEVICE_ID_TTY_HEADSET_SPKR, CAD_HW_DEVICE_ID_TTY_HEADSET_MIC, SND_METHOD_VOICE, 1, m7xsnddriverfd);
@@ -1103,22 +1095,22 @@ static status_t do_route_audio_rpc(uint32_t device,
         ALOGV("In HANDSET");
     }
     else if(device == SND_DEVICE_SPEAKER) {
-        args.device.rx_device = CAD_HW_DEVICE_ID_SPEAKER_PHONE_MONO_MUSIC;
+        args.device.rx_device = CAD_HW_DEVICE_ID_SPEAKER_PHONE_MONO;
         args.device.tx_device = CAD_HW_DEVICE_ID_SPEAKER_PHONE_MIC;
         ALOGV("In SPEAKER");
     }
     else if(device == SND_DEVICE_HEADSET) {
-        args.device.rx_device = CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO_MUSIC;
+        args.device.rx_device = CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO;
         args.device.tx_device = CAD_HW_DEVICE_ID_HEADSET_MIC;
         ALOGV("In HEADSET");
     }
     else if(device == SND_DEVICE_HEADPHONE) {
-        args.device.rx_device = CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO_MUSIC;
+        args.device.rx_device = CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO;
         args.device.tx_device = CAD_HW_DEVICE_ID_NONE;
         ALOGV("In HEADPHONE");
     }
     else if(device == SND_DEVICE_HEADPHONE_AND_SPEAKER_MIC) {
-        args.device.rx_device = CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO_MUSIC;
+        args.device.rx_device = CAD_HW_DEVICE_ID_HEADSET_SPKR_STEREO;
         args.device.tx_device = CAD_HW_DEVICE_ID_SPEAKER_PHONE_MIC_ENDFIRE;
         ALOGV("In HEADPHONE_AND_SPEAKER_MIC");
     }
