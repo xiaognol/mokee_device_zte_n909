@@ -129,8 +129,9 @@ PRODUCT_COPY_FILES += \
     device/zte/n909/configs/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/zte/n909/configs/apns-conf.xml:system/etc/apns-conf.xml \
     device/zte/n909/configs/thermald.conf:system/etc/thermald.conf \
-    device/zte/n909/configs/thermald-8x25-msm1-pmic_therm.conf:system/etc/thermald-8x25-msm1-pmic_therm.conf \
-    device/zte/n909/configs/thermald-C8813Q.conf:system/etc/thermald-C8813Q.conf \
+    device/zte/n909/configs/thermald-8x25-1008000_therm.conf:system/etc/thermald-8x25-1008000_therm.conf \
+    device/zte/n909/configs/thermald-8x25-1104000_therm.conf:system/etc/thermald-8x25-1104000_therm.conf \
+    device/zte/n909/configs/thermald-8x25-1152000_therm.conf:system/etc/thermald-8x25-1152000_therm.conf \
     device/zte/n909/configs/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
     device/zte/n909/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh
 
@@ -198,9 +199,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage,adb \
     ro.vold.umsdirtyratio=50
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.webview.provider=classic
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
