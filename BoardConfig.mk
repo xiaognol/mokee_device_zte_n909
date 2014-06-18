@@ -104,6 +104,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
+TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/n909/recovery-kernel
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/n909/recovery/recovery-keys.c
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
 TARGET_RECOVERY_INITRC := device/zte/n909/recovery/init.rc
