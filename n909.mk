@@ -169,6 +169,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     headset.hook.delay=500
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.webview.provider=classic
+
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.remote.autoconnect=true \
     ro.bluetooth.request.master=true \
     ro.bt.bdaddr_path=/data/misc/bluedroid/bdaddr \
