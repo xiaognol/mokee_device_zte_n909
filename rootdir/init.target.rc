@@ -141,6 +141,9 @@ on emmc-fs
     wait /dev/block/platform/msm_sdcc.3/by-num/p14
     mount ext4 /dev/block/platform/msm_sdcc.3/by-num/p14 /persist nosuid nodev barrier=1
 
+    wait /dev/block/platform/msm_sdcc.3/by-num/p20
+    exec /system/bin/sh -c "/system/xbin/busybox mount /dev/block/platform/msm_sdcc.3/by-num/p20  /storage/sdcard0"
+
 on fs
 	# mount mtd partitions
     mount_all fstab.nand.msm7627a
