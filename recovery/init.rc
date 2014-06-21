@@ -49,10 +49,8 @@ on init
     mount tmpfs tmpfs /mnt/fuse mode=0775,gid=1000
 
     write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 12d1
-    write /sys/class/android_usb/android0/idProduct 1038
-    write /sys/class/android_usb/android0/f_mass_storage/nluns 2
-    write /sys/class/android_usb/android0/f_mass_storage/cdrom_index none
+    write /sys/class/android_usb/android0/idVendor 19d2
+    write /sys/class/android_usb/android0/idProduct 1361
     write /sys/class/android_usb/android0/functions mass_storage,adb
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
@@ -81,20 +79,6 @@ service charge /sbin/charge
 
 service adbd /sbin/adbd recovery
     disabled
-
-service rmt_storage /sbin/rmt_storage
-    class main
-    user root
-    disabled
-
-service rmt_oeminfo /sbin/rmt_oeminfo
-    class main
-    user root
-    oneshot
-
-on property:ro.boot.emmc=1
-    start rmt_oeminfo
-    start rmt_storage
 
 service vold /sbin/minivold
     socket vold stream 0660 root mount
