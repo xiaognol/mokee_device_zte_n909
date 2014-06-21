@@ -15,10 +15,10 @@
 #
 
 # Specify phone tech before including full_phone
-$(call inherit-product, vendor/cm/config/cdma.mk)
+$(call inherit-product, vendor/mk/config/cdma.mk)
 
 # Inherit some common CM stuff
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/mk/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/zte/n909/full_n909.mk)
@@ -28,7 +28,7 @@ TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
 
 # Device name
-PRODUCT_NAME := cm_n909
+PRODUCT_NAME := mk_n909
 PRODUCT_DEVICE := n909
 
 # CM packages

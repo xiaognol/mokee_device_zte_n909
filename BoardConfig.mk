@@ -116,7 +116,7 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/zte/n909/recovery/graphics.c
 # CWM_CN
 #BOARD_CUSTOM_GRAPHICS := ../../../device/zte/n909/recovery/graphics_cn.c
 #BOARD_USE_CUSTOM_RECOVERY_FONT := \"fontcn22_12x32.h\"
-
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
 # CM Recovery
 #RECOVERY_VARIANT := cm
 
