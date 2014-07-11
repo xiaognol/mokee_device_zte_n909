@@ -196,7 +196,7 @@ void gr_flip(void)
 
     /* swap front and back buffers */
     /*if (double_buffering)
-        gr_active_fb = (gr_active_fb + 1) & 1;
+        gr_active_fb = (gr_active_fb + 1) & 1; */
 
     /* copy data from the in-memory surface to the buffer we're about
      * to make active. */
@@ -430,12 +430,12 @@ void gr_fb_blank(bool blank)
 #ifdef RECOVERY_LCD_BACKLIGHT_PATH
     int fd;
 
-    fd = open(RECOVERY_LCD_BACKLIGHT_PATH, O_RDWR);
+    fd = open("/sys/class/leds/lcd-backlight/brightness", O_RDWR);
     if (fd < 0) {
         perror("cannot open LCD backlight");
         return;
     }
-    write(fd, blank ? "000" : "127", 3);
+    write(fd, "127", 3);
     close(fd);
 #else
     int ret;

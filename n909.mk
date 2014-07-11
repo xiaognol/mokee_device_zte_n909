@@ -64,8 +64,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libqdutils \
     libmemalloc \
-    liboverlay \
-    libqservice
+    liboverlay 
 
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -76,13 +75,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
-    libstagefrighthw \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libdashplayer \
-    libOmxVdec \
-    libOmxVenc \
-    qcmediaplayer
+    libstagefrighthw
 
 PRODUCT_PACKAGES += \
     gps.msm7x27a \
@@ -215,4 +208,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/zte/n909/n909-vendor.mk)
+$(call inherit-product, vendor/zte/n909/n909-vendor.mk)
