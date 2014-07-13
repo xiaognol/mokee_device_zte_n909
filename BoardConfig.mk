@@ -81,7 +81,7 @@ BOARD_HARDWARE_CLASS := device/zte/n909/cmhw
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.selinux=enforcing
 BOARD_PAGE_SIZE := 2048
-TARGET_KERNEL_SOURCE := kernel/zte/n909
+TARGET_KERNEL_SOURCE := zte-kernel
 TARGET_KERNEL_CONFIG := n909_defconfig
 
 # Lights
@@ -110,11 +110,12 @@ TARGET_RECOVERY_INITRC := device/zte/n909/recovery/init.rc
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 DEVICE_RESOLUTION := 480x854
 TARGET_RECOVERY_FSTAB := device/zte/n909/rootdir/fstab.qcom
+BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_CUSTOM_GRAPHICS := ../../../device/zte/n909/recovery/graphics.c
 
 # CWM_CN
 #BOARD_CUSTOM_GRAPHICS := ../../../device/zte/n909/recovery/graphics_cn.c
-#BOARD_USE_CUSTOM_RECOVERY_FONT := \"fontcn22_12x32.h\"
+#BOARD_USE_CUSTOM_RECOVERY_FONT := \"fontcn28_15x40.h\"
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
 # CM Recovery
 #RECOVERY_VARIANT := cm
